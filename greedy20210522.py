@@ -7,11 +7,9 @@
 
 # 만약 정확하게 나눌 수 없다면 -1를 출력하게
 
-n = int(input())
+n = int( input())
 # 봉지 갯수
 count = 0
-bonggi_type = [5,3]
-namugi = 0
 
 while True:
    # 만약 5로 나눴을때 나눴는데 나머지가 있어 근데 3으로 나눠떨어지지 않으면 -1
@@ -21,15 +19,19 @@ while True:
       #  그럼 5또는 3으로 나눴을때
       # 몫을 카운트에 넣어주자
       count = count + n // 5
-      print(count)
       break
-   n -= 3
-   count += 1
+   # 3으로도 5로도 나눠떨어지지 않는다면 3을 빼서 보자
+   else:
+      n -= 3
+      count += 1
+      if n < 0:
+         count = -1
+         break
+print(count)
+      # 만약 3으로 계속 뺐는데 11-3=8-3=5/5=1 이런경우가 아니라
+   # 4같이 4-3=1-3
 
    # 근데 나머지가 생기지 않는 경우잖아 어차피 나머지가 생겼을 경우
-else:
-   print(-1)
-
       # 똑같이 몫을 카운트에 넣어주되
       # count = count + n // bongi
       # # 나머지를 만들어주자
