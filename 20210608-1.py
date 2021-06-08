@@ -1,12 +1,12 @@
 N = int(input())
 
-array = []
-
-for i in range(N):
-    array.append(int(input()))
+array = list(map(int, input().split()))
 
 array.sort()
 
+result = 0
+array2 = []
 for i in range(N):
-    print(array[i])
-
+    result += array[i]
+    array2.append(result)
+print(sum(array2))
