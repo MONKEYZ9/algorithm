@@ -1,19 +1,22 @@
 class Stack:
-    def __init__(self):
-        self.stack_list = []
+    def __init__(self, n):
+        self.stack_list = [None for _ in range(n)]
         self.stack_size = 0
     
     def push(self, num):
-        self.stack_list.append(int(num))
+        self.stack_list[self.size()] = int(num)
         self.stack_size += 1
     
     def pop(self):
         if self.size() > 0:
+            last_val = self.top()
+        
+            self.stack_list[self.size()-1] = None
+            
             self.stack_size -= 1
-            return self.stack_list.pop()
+            return last_val
         
         return -1
-
     def size(self):
         return self.stack_size
 
@@ -48,9 +51,8 @@ def run_cmd_with_stack(new_stack, cmd):
     return new_stack
 
 n = int(input())
-stack = []
-stack_size = 0
-new_stack = Stack()
+new_stack = Stack(n)
+
 # new_stack.stack_list
 # new_stack.stack_size
 
@@ -59,3 +61,6 @@ for _ in range(n):
     # "size".split() => ["size"]
     command = input().split()
     new_stack = run_cmd_with_stack(new_stack, command)
+    
+    print(new_stack.stack_list)
+    print(new_stack.stack_size)
