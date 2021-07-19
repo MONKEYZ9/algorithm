@@ -1,24 +1,24 @@
-class Stack:
+class Que:
     def __init__(self, n):
-        self.stack_list = [None for _ in range(n)]
-        self.stack_size = 0
+        self.que_list = [None for _ in range(n)]
+        self.que_size = 0
     
     def push(self, num):
-        self.stack_list[self.size()] = int(num)
-        self.stack_size += 1
+        self.que_list[self.size()] = int(num)
+        self.que_size += 1
     
     def pop(self):
         if self.size() > 0:
             last_val = self.top()
         
-            self.stack_list[self.size()-1] = None
+            self.que_list[self.size()-1] = None
             
-            self.stack_size -= 1
+            self.que_size -= 1
             return last_val
         
         return -1
     def size(self):
-        return self.stack_size
+        return self.que_size
 
     def empty(self):
         if self.size() > 0:
@@ -28,39 +28,35 @@ class Stack:
 
     def top(self):
         if self.size() > 0:
-            return self.stack_list[self.size()-1]
+            return self.que_list[self.size()-1]
         
         return -1
 
-def run_cmd_with_stack(new_stack, cmd):
+def run_cmd_with_stack(new_que, cmd):
     cmd_type = cmd[0]
     # cmd_type, num = cmd
 
     if cmd_type == "push":
         _, num = cmd
-        new_stack.push(num)
+        new_que.push(num)
     elif cmd_type == "pop":
-        print(new_stack.pop())
+        print(new_que.pop())
     elif cmd_type == "size":
-        print(new_stack.size())
+        print(new_que.size())
     elif cmd_type == "empty":
-        print(new_stack.empty())
+        print(new_que.empty())
     elif cmd_type == "top":
-        print(new_stack.top())
+        print(new_que.top())
      
-    return new_stack
+    return new_que
 
 n = int(input())
-new_stack = Stack(n)
-
-# new_stack.stack_list
-# new_stack.stack_size
+new_que = Que(n)
 
 for _ in range(n):
-    # "push 2".split() => ["push", "2"]
-    # "size".split() => ["size"]
+
     command = input().split()
-    new_stack = run_cmd_with_stack(new_stack, command)
+    new_que = run_cmd_with_stack(new_que, command)
     
     print(new_stack.stack_list)
     print(new_stack.stack_size)
