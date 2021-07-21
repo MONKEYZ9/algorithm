@@ -1,3 +1,5 @@
+import de
+
 class Que:
     def __init__(self, n):
         self.que_list = [None for _ in range(n)]
@@ -58,5 +60,5 @@ for _ in range(n):
     command = input().split()
     new_que = run_cmd_with_stack(new_que, command)
     
-    print(new_stack.stack_list)
-    print(new_stack.stack_size)
+    print(new_que.stack_list)
+    print(new_que.stack_size)
