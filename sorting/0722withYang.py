@@ -3,7 +3,7 @@ def insertion_sort(num_list, n):
 
     for i in range(bef_n_list):
         bef_n_list[i]
-        bef_n_list[i-1]
+        bef_n_list[i-1 ]
 
 
     # 밑의 과정을 반복할거니까 반복문을 써보자
