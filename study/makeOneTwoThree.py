@@ -1,27 +1,37 @@
+# T = int(input())
+
+# dp = {2: 2, 3 : 4, 4 : 7}
+
+# for i in range(5, 11):
+#     dp[i] = dp[i-1] + dp[i-2] + dp[i-3]
+# for _ in range(T):
+#     n = int(input())
+#     print(dp[n])
+
 T = int(input())
 
 dp = [1,2,4]
-n_list = []
 
-for i in range(T):
-    n_list.append( int(input()) )
-
-for i in range(3, int(n_list[i])):
+for i in range(3, 11):
     dp.append(dp[i-1] + dp[i-2] + dp[i-3])
 
-for i in n_list:
-    print(dp[i])
+for i in range(T):
+    N =  int(input())
+    print(dp[N-1])
 
+# T = int(input())
 
-T = int(input())
+# dp = [1,2,4]
+# n_list = []
 
-dp = {2: 2, 3 : 4, 4 : 7}
+# for i in range(T):
+#     n_list.append( int(input()) )
 
-for i in range(5, 11):
-    dp[i] = dp[i-1] + dp[i-2] + dp[i-3]
-for _ in range(T):
-    n = int(input())
-    print(dp[n])
+# for i in range(3, int(n_list[-1])):
+#     dp.append(dp[i-1] + dp[i-2] + dp[i-3])
+
+# for i in n_list:
+#     print(dp[i-1])
 
 # 구현으로 다가가면
 # 일단 1만 쭉 더하는건 
