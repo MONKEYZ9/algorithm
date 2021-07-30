@@ -1,6 +1,5 @@
 class Queue:
     def __init__(self, n):
-        # self.array = [None] * n
         self.array = [None for _ in range(n)]
         self.f_idx = 0
         self.b_idx = 0
@@ -10,18 +9,12 @@ class Queue:
         self.b_idx += 1
 
     def pop(self):
-        # if self.f_idx == self.b_idx:
-        # if self.b_idx - self.f_idx == 0:
-        # if self.size() == 0:
         if self.is_empty():
             return -1
 
         pop_val = self.array[self.f_idx]
         self.f_idx += 1
         return pop_val
-
-        # self.f_idx += 1
-        # return self.array[self.f_idx-1]
 
     def size(self):
         return self.b_idx - self.f_idx
