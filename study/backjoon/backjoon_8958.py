@@ -1,22 +1,30 @@
 N = int(input())
 N_list = [input() for _ in range(N)]
 
-for i in N_list:
-    # 그냥 O이면 읽고 카운트해주는거로 가자
-    # X가 나오면 count 0으로 바꾸고
-    print(len(N_list[i]))
-    # for j in range(len(N_list[i])):
+
+# for n in N_list:
+#     for i in range(len(n)):
+#         count = 0
+#         if n[i] == 'O':
+#             count += 1
+#             count_list.append(count)
+#             print(count_list)
+#         else:
+#             count = 0
+#             count_list.append(count)
+#             print(count_list)
+# print(count_list)
+        
+# strr= 'OOXXOXXOOO'
+# print(strr[4])
 
 
-
-
-    # count = 0
-    # 문자를 X기준으로 자르자
-    # n_list = i.split('X')
-    # print(n_list)
-    # for j in n_list:
-    #     print(j)
-    #     count +=  j.count('O')
-    #     print()
-    #     # print(count)
-    #     # print('=========================')
+for n in N_list:
+    count = 0
+    for i in n.split('X'):
+        if i.count('O') > 1:
+            for j in range(1, i.count('O')+1):
+                count += j
+        else:
+            count += ( i.count('O') ) 
+    print(count)

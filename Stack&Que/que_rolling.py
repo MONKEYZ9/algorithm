@@ -1,5 +1,23 @@
 from collections import deque
 
+N, M = map(int, input().split())
+n_list = list(map(int, input().split()))
+queue = deque(range(1, N+1))
+count = 0
+
+for n in n_list:
+    while queue[0] != n:
+        t = queue.index(n)
+        # 앞뒤로 비교해보자
+        if t <= len(queue)-t-1:
+            queue.append(queue.popleft())
+        else:
+            queue.appendleft(queue.pop())
+        count += 1
+    queue.popleft()
+print(count)
+
+
 # 1 2 3 4 5 6
 # 첫번째 방법
 # _ 2 3 4 5 6
@@ -45,25 +63,25 @@ from collections import deque
 # 거기로 가는 방법이 첫번째와 마지막 인덱스까지 가는 방법 중에 
 
 # 큐의 크기 N, 뽑아내려고 하는 수의 개수 M
-N, M = map(int, (input().split()))
-# 뽑아줄 인덱스 고르자
-num_idx =list(map(int, (input().split())))
+# N, M = map(int, (input().split()))
+# # 뽑아줄 인덱스 고르자
+# num_idx =list(map(int, (input().split())))
 
-10-2 > 5
+# 10-2 > 5
 
-# 1
-# 2 1 -1*(0-1)+10-2     2-1 1 
-# 9 3 -1*(0-2)+10-9     9-2 7 
-# 5 4 -1*(0-9)+10-5               5-9 => - 
-# 걍 첫번째 인덱스에서 두번째 원소의 인덱스 까지 어떻게 갈지만 고민하면 되네
-count = 0
-idx = 1
+# # 1
+# # 2 1 -1*(0-1)+10-2     2-1 1 
+# # 9 3 -1*(0-2)+10-9     9-2 7 
+# # 5 4 -1*(0-9)+10-5               5-9 => - 
+# # 걍 첫번째 인덱스에서 두번째 원소의 인덱스 까지 어떻게 갈지만 고민하면 되네
+# count = 0
+# idx = 1
 
-for num in range(len(num_idx)):
-    # idx가 7인데 num이 2야 그럼 2-7 5냐 10-2+2 5냐 
-    # idx가 1인데 num이 2야 그럼 2-1 1냐 10-2+1
+# for num in range(len(num_idx)):
+#     # idx가 7인데 num이 2야 그럼 2-7 5냐 10-2+2 5냐 
+#     # idx가 1인데 num이 2야 그럼 2-1 1냐 10-2+1
 
-    if N-num == num-idx:
+#     if N-num == num-idx:
         
 
 
