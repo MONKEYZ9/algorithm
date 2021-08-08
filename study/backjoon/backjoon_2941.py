@@ -23,6 +23,6 @@
 str_n = input()
 croatia_str = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
 for i in croatia_str:
-    str_n = str_n.replace(i,'.')
+    str_n = str_n.replace(i,'!')
 
 print(len(str_n))
