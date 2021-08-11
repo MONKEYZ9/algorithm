@@ -1,6 +1,8 @@
-# num_list = list(map(int, str(117)))
-# print(num_list)
-a = 0x61 # a의 ASCII 값
-z = 0x7A # z의 ASCII 값
-for i in range(97, 123, 1):
-    print(chr(i))
+n = int(input())
+for _ in range(n):
+    word = input()
+    for i in range(1, len(word)):
+        if word.find(word[i-1]) > word.find(word[i]):
+            n -= 1 
+            break
+print(n)
