@@ -14,26 +14,62 @@
 # 출력
 # 첫째 줄에 B진법 수 N을 10진법으로 출력한다.
 
-def recur(N, B):
-    B = int(B)
-    if type(N) == str:
-        N = int(len(N))-1
-        answer = (B-1)*(B**N)
-        if N == 0:
-            return answer
-        return answer + recur(N-1, B)
+# def recur(N, B):
+#     try:
+#         N_first = int(N[0])
+#         answer = (N_first)*(B**(len(N)-1))
+#         N.pop(0)
+#         if len(N) == 0:
+#             return answer
+#         return answer + recur(N, B)
+
+#     except ValueError:
+#         n_len = len(N)
+#         answer = (ord(N[0])-55)*(B**(n_len-1))
+#         N.pop(0)
+#         if len(N) == 0:
+#             return answer
+#         return answer + recur(N, B)
+
+
+#     # 일단, 1ZZZZZ 와 같은걸 만났을때 
+#     #1에 대해서 해결할 수 있어야 함
+#     # 리스트의 인덱스로 통해서 꺼내와서 가져와서 하는게 나을거 같은데.
+
+# N, B = input().split()
+# # N = list(N)
+# # B = int(B)
+# # a = recur(N, B)
+# # print(a)
+# # print(1295//36)
+# # # print(1295%36)
+
+# # print(ord('Z'))
+# # print(ord('A'))
+# # # print(chr(36+54))
+# # print(chr(90))
+
+# # A : 10  65
+# # Z : 35  90
+
+# print(int(N, int(B)))
+
+
+
+def recur(N, B, cnt):
+    if N[-1].isnumeric():
+        answer = int(N[-1])*(B**(cnt))
     else:
-        answer = (B-1)*(B**N)
-        if N == 0:
-            return answer
-        return answer + recur(N-1, B)
+        answer = (ord(N[-1])-55)*(B**(cnt))
+    N.pop()
+    cnt += 1
+    if len(N) == 0:
+        return answer
+    return answer + recur(N, B, cnt)
 
 N, B = input().split()
-a = recur(N, B)
+N = list(N)
+B = int(B)
+cnt = 0
+a = recur(N, B, cnt)
 print(a)
-# print(1295//36)
-# # print(1295%36)
-
-# print(ord('Z'))
-# print(ord('A'))
-# print(chr(36+54))
