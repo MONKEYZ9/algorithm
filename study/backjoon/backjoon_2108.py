@@ -1,10 +1,10 @@
-import numpy as np
-from scipy import stats
 from collections import Counter
-N = int(input())
-N_list = [int(input()) for _ in range(N)]
-print(np.mean(N_list))
-print(np.median(N_list))
+import sys
+
+N = int(sys.stdin.readline())
+N_list = [int(sys.stdin.readline()) for _ in range(N)]
+print(round(sum(N_list)/len(N_list)))
+print((N_list[len(N_list)//2]))
 cnt_li = Counter(N_list).most_common()
 if len(cnt_li) > 1 and cnt_li[0][1]==cnt_li[1][1]: #최빈값 2개 이상
     print(cnt_li[1][0])
